@@ -11,7 +11,7 @@
         android:id="@+id/imageView"
         android:layout_width="300dp"
         android:layout_height="170dp"
-        android:src="@drawable/Logo_ABSAN_white"
+        android:src="@drawable/logo_absan_white"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
