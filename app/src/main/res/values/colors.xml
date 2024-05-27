@@ -9,4 +9,5 @@
     <color name="black">#FF000000</color>
     <color name="White">#FFFFFFFF</color>
     <color name="Midnightblue">#191970</color>
+    <color name="Gray">#BDBDBD</color>
 </resources>
