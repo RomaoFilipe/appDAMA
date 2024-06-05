@@ -1,7 +1,8 @@
-package pt.ipt.dama2024.absan.ui.theme
+package pt.ipt.dama2024.absan
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import pt.ipt.dama2024.absan.LocaleHelper
 
 open class BaseActivity : AppCompatActivity() {
 

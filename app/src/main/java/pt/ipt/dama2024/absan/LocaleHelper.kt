@@ -1,9 +1,10 @@
-package pt.ipt.dama2024.absan.ui.theme
+package pt.ipt.dama2024.absan
 
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import java.util.*
+import pt.ipt.dama2024.absan.R
 
 object LocaleHelper {
     private const val SELECTED_LANGUAGE = "Locale.Helper.Selected.Language"

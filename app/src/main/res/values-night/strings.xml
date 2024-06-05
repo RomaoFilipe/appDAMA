@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Welcome">Welcome!\nThe Santarém Billiards Association</string>
+    <string name="Edit_Password">Password</string>
+    <string name="BTN_iniciarsessao">Login</string>
+    <string name="BTN_registar">Registar</string>
+</resources>

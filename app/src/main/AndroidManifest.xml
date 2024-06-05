@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        tools:ignore="ScopedStorage" />
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="ABSAN"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar"
+        android:theme="@style/Theme.ABSAN"
         tools:targetApi="31">
+        <activity android:name=".ProfileActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity"/>
-        <activity android:name=".SplashActivity"
+        <activity
+            android:name=".LoginActivity"
+            android:configChanges="locale|orientation|screenSize" />
+        <activity
+            android:name=".SplashActivity"
             android:exported="true"
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="DuplicateActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

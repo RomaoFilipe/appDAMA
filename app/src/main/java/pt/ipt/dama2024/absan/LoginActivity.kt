@@ -4,9 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
-import pt.ipt.dama2024.absan.ui.theme.BaseActivity
-import pt.ipt.dama2024.absan.ui.theme.LocaleHelper
+import pt.ipt.dama2024.absan.R
+
 
 class LoginActivity : BaseActivity() {
 
