@@ -3,4 +3,5 @@
     <string name="logo_description">ABSAN logo</string>
     <string name="username">Username</string>
     <string name="new_user_register_here">New user? Register here</string>
+    <string name="logo">logo</string>
 </resources>
