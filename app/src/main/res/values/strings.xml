@@ -1,7 +1,22 @@
 <resources>
-    <string name="app_name">ABSAN</string>
-    <string name="logo_description">ABSAN logo</string>
+    <string name="app_name">My Application</string>
+    <string name="logo" translatable="false">Logo</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
     <string name="username">Username</string>
-    <string name="new_user_register_here">New user? Register here</string>
-    <string name="logo">logo</string>
+    <string name="password">Password</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone Number</string>
+    <string name="select_language">Select Language</string>
+    <string name="english">English</string>
+    <string name="portuguese">Portuguese</string>
+    <string name="Welcome">Welcome!\nThe Santarém Billiards Association</string>
+    <string name="Edit_Username">Username</string>
+    <string name="Edit_Password">Password</string>
+    <string name="BTN_iniciarsessao">Login</string>
+    <string name="BTN_registar">Registar</string>
+    <string name="login_successful">Login Successful</string>
+    <string name="invalid_credentials">Invalid Username or Password</string>
+    <string name="BackgroudPerfil">Backgroud_Perfil</string>
 </resources>
