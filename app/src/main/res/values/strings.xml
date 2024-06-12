@@ -20,4 +20,6 @@
     <string name="login_successful">Login Successful</string>
     <string name="invalid_credentials">Invalid Username or Password</string>
     <string name="BackgroudPerfil">Backgroud_Perfil</string>
+
+
 </resources>
