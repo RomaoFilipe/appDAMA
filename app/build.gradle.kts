@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     kotlin("kapt")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -59,6 +60,8 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.databinding.runtime)
     implementation(libs.imagepicker)
+    implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
+    implementation("com.google.firebase:firebase-analytics")
 
     // Room dependencies
     implementation(libs.androidx.room.runtime)

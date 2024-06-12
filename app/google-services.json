@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "530503929322",
+    "project_id": "appdama-23a4c",
+    "storage_bucket": "appdama-23a4c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:530503929322:android:e4691667b50b8f43c2f693",
+        "android_client_info": {
+          "package_name": "pt.ipt.dama2024.absan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAi2v5I0-8CJi_ZGof2d8wVLnPpB9Tx8ts"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
