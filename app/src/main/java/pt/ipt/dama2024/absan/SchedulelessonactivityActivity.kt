@@ -3,6 +3,7 @@ package pt.ipt.dama2024.absan
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -56,13 +57,18 @@ class ScheduleLessonActivity : AppCompatActivity() {
                     "user" to user
                 )
 
+                // Adicionar log para verificar os dados
+                Log.d("ScheduleLesson", "Agendamento: $lesson")
+
                 firestore.collection("lessons")
                     .add(lesson)
                     .addOnSuccessListener {
                         Toast.makeText(this, "Aula agendada com sucesso", Toast.LENGTH_SHORT).show()
+                        Log.d("ScheduleLesson", "Agendamento salvo com sucesso")
                     }
                     .addOnFailureListener { e ->
                         Toast.makeText(this, "Erro ao agendar aula: ${e.message}", Toast.LENGTH_SHORT).show()
+                        Log.e("ScheduleLesson", "Erro ao salvar agendamento", e)
                     }
             } else {
                 Toast.makeText(this, "Por favor, preencha todos os campos", Toast.LENGTH_SHORT).show()
