@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">My Application</string>
     <string name="logo" translatable="false">Logo</string>
     <string name="register">Register</string>
     <string name="login">Login</string>
@@ -20,4 +19,7 @@
     <string name="login_successful">Login Successful</string>
     <string name="invalid_credentials">Invalid Username or Password</string>
     <string name="BackgroudPerfil">Backgroud_Perfil</string>
+    <string name="app_name">AppDAMA</string>
+    <string name="trainer_prompt">Escolha um Treinador</string>
+
 </resources>
