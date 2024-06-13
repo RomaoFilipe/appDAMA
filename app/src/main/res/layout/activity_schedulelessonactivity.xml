@@ -5,11 +5,11 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <EditText
-        android:id="@+id/editTextTrainerName"
+    <Spinner
+        android:id="@+id/spinnerTrainerName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nome do Treinador" />
+        android:prompt="@string/trainer_prompt" />
 
     <EditText
         android:id="@+id/editTextDate"
@@ -31,3 +31,4 @@
         android:layout_height="wrap_content"
         android:text="Agendar Aula" />
 </LinearLayout>
+

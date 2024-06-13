@@ -3,16 +3,21 @@ package pt.ipt.dama2024.absan
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.Calendar
 
 class ScheduleLessonActivity : AppCompatActivity() {
 
     private lateinit var firestore: FirebaseFirestore
+    private lateinit var auth: FirebaseAuth
+    private lateinit var spinnerTrainerName: Spinner
     private lateinit var editTextDate: EditText
     private lateinit var editTextTime: EditText
 
@@ -20,26 +25,35 @@ class ScheduleLessonActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_schedulelessonactivity)
 
-        val editTextTrainerName = findViewById<EditText>(R.id.editTextTrainerName)
+        spinnerTrainerName = findViewById(R.id.spinnerTrainerName)
         editTextDate = findViewById(R.id.editTextDate)
         editTextTime = findViewById(R.id.editTextTime)
         val buttonSchedule = findViewById<Button>(R.id.buttonSchedule)
 
         firestore = FirebaseFirestore.getInstance()
+        auth = FirebaseAuth.getInstance()
+
+        // Configurar o Spinner
+        val trainers = arrayOf("Treinador1", "Treinador2")
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, trainers)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinnerTrainerName.adapter = adapter
 
         editTextDate.setOnClickListener { showDatePickerDialog() }
         editTextTime.setOnClickListener { showTimePickerDialog() }
 
         buttonSchedule.setOnClickListener {
-            val trainerName = editTextTrainerName.text.toString()
+            val trainerName = spinnerTrainerName.selectedItem.toString()
             val date = editTextDate.text.toString()
             val time = editTextTime.text.toString()
+            val user = auth.currentUser?.email ?: "unknown"
 
-            if (trainerName.isNotEmpty() && date.isNotEmpty() && time.isNotEmpty()) {
+            if (date.isNotEmpty() && time.isNotEmpty()) {
                 val lesson = hashMapOf(
                     "trainerName" to trainerName,
                     "date" to date,
-                    "time" to time
+                    "time" to time,
+                    "user" to user
                 )
 
                 firestore.collection("lessons")
