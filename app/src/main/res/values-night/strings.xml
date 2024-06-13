@@ -4,4 +4,8 @@
     <string name="Edit_Password">Password</string>
     <string name="BTN_iniciarsessao">Login</string>
     <string name="BTN_registar">Registar</string>
+    <string name="Schedule_icon">Schedule_icon</string>
+    <string name="Perfil_icon">Perfil_icon</string>
+    <string name="agendar_aula">Schedule</string>
+    <string name="perfil">Profile</string>
 </resources>

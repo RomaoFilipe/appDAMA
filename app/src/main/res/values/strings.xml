@@ -21,5 +21,9 @@
     <string name="BackgroudPerfil">Backgroud_Perfil</string>
     <string name="app_name">AppDAMA</string>
     <string name="trainer_prompt">Escolha um Treinador</string>
+    <string name="Schedule_icon">Schedule_icon</string>
+    <string name="Perfil_icon">Perfil_icon</string>
+    <string name="agendar_aula">Schedule</string>
+    <string name="perfil">Profile</string>
 
 </resources>
