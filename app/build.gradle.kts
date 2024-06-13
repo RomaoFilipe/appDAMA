@@ -60,6 +60,9 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.databinding.runtime)
     implementation(libs.imagepicker)
+    implementation ("com.google.android.material:material:1.4.0")
+    implementation ("androidx.cardview:cardview:1.0.0")
+
     implementation(platform("com.google.firebase:firebase-bom:33.1.0"))
     implementation("com.google.firebase:firebase-analytics")
 

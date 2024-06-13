@@ -10,4 +10,8 @@
     <color name="White">#FFFFFFFF</color>
     <color name="Midnightblue">#191970</color>
     <color name="Gray">#BDBDBD</color>
+
+    <color name="cardBackground">#FFFFFF</color>
+    <color name="cardElevation">#DDDDDD</color>
+    <color name="textColorPrimary">#000000</color>
 </resources>

@@ -21,4 +21,8 @@
     <string name="invalid_credentials">Nome de usuário ou senha inválidos</string>
     <string name="BackgroudPerfil">Backgroud_Perfil</string>
     <string name="trainer_prompt">Escolha um Treinador</string>
+    <string name="Schedule_icon">Schedule_icon</string>
+    <string name="Perfil_icon">Perfil_icon</string>
+    <string name="agendar_aula">Agendar</string>
+    <string name="perfil">Perfil</string>
 </resources>
