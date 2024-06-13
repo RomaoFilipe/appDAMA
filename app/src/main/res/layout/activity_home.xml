@@ -14,4 +14,12 @@
         android:text="Welcome to Home!"
         android:textSize="20sp" />
 
+
+    <Button
+        android:id="@+id/btnProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile"
+        android:onClick="openProfile" />
+
 </LinearLayout>
