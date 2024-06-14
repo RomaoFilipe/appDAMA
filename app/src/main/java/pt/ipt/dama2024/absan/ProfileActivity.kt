@@ -35,7 +35,14 @@ class ProfileActivity : AppCompatActivity() {
             user?.let {
                 binding.textView.text = it.fullName
                 binding.textView2.text = it.email
-                // Adicione quaisquer outros campos que você queira exibir
+                // Carregar a imagem do perfil do banco de dados, se houver
+                val profileImagePath = dbHelper.getProfileImagePath(username)
+                profileImagePath?.let { path ->
+                    val file = File(path)
+                    if (file.exists()) {
+                        binding.imageView.setImageURI(Uri.fromFile(file))
+                    }
+                }
             }
         } else {
             // Trate o caso em que o nome de usuário é nulo
@@ -49,11 +56,6 @@ class ProfileActivity : AppCompatActivity() {
                 .compress(1024)
                 .maxResultSize(1080, 1080)
                 .start()
-        }
-
-        // Carregar a imagem do perfil, se houver
-        loadImageFromInternalStorage()?.let {
-            binding.imageView.setImageURI(it)
         }
     }
 
@@ -69,6 +71,11 @@ class ProfileActivity : AppCompatActivity() {
                 // Salvar a imagem no armazenamento interno
                 imageFilePath?.let { filePath ->
                     saveImageToInternalStorage(filePath)
+                    // Atualizar o caminho da imagem no banco de dados
+                    val username = intent.getStringExtra("username")
+                    username?.let {
+                        dbHelper.updateProfileImagePath(it, filePath)
+                    }
                 }
             }
         }
@@ -92,15 +99,6 @@ class ProfileActivity : AppCompatActivity() {
             outputStream.close()
         } catch (e: IOException) {
             e.printStackTrace()
-        }
-    }
-
-    private fun loadImageFromInternalStorage(): Uri? {
-        val file = File(filesDir, "profile_image.jpg")
-        return if (file.exists()) {
-            Uri.fromFile(file)
-        } else {
-            null
         }
     }
 }
