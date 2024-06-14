@@ -10,7 +10,6 @@ import android.provider.MediaStore
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.github.dhaval2404.imagepicker.ImagePicker
-import pt.ipt.dama2024.absan.R
 import pt.ipt.dama2024.absan.databinding.ActivityProfileBinding
 import java.io.File
 import java.io.FileInputStream
@@ -34,9 +33,9 @@ class ProfileActivity : AppCompatActivity() {
         if (username != null) {
             val user = dbHelper.getUserByUsername(username)
             user?.let {
-                it.fullName.also { binding.textView.text = it }
-                it.email.also { binding.textView2.text = it }
-                // Aqui você pode exibir outros detalhes do usuário, se necessário
+                binding.textView.text = it.fullName
+                binding.textView2.text = it.email
+                // Adicione quaisquer outros campos que você queira exibir
             }
         } else {
             // Trate o caso em que o nome de usuário é nulo

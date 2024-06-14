@@ -25,4 +25,10 @@
     <string name="Perfil_icon">Perfil_icon</string>
     <string name="agendar_aula">Agendar</string>
     <string name="perfil">Perfil</string>
+    <string name="empty_fields">Preencha todos os campos</string>
+    <string name="passwords_do_not_match">Passwords nao correspondem</string>
+    <string name="user_already_exists">Utilizador ja existe</string>
+    <string name="registration_successful">Registo sucedido</string>
+    <string name="registration_failed">Registo falhado</string>
+    <string name="firebase_registration_failed">Registo Firebase Falhou</string>
 </resources>

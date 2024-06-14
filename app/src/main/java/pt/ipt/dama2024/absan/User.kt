@@ -6,6 +6,5 @@ data class User(
     val email: String,
     val phone: String,
     val username: String,
-    val password: String,
-    val profileImagePath: String? = null // Nova propriedade
+    val profileImagePath: String
 )
