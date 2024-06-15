@@ -1,0 +1,90 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="2">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#FF0000">
+
+        <TextView
+            android:id="@+id/scoreTeam1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="100sp"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/team1Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+1"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/decrementTeam1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-1"
+            android:layout_gravity="start|bottom"
+            android:layout_margin="16dp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="#0000FF">
+
+        <TextView
+            android:id="@+id/scoreTeam2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="100sp"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/team2Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+1"
+            android:textSize="20sp"
+            android:layout_gravity="center"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/decrementTeam2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="-1"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/mainMenuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/menu"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:background="#CCCCCC"
+        android:textColor="#000000"/>
+</LinearLayout>
