@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">ABSAN</string>
     <string name="logo" translatable="false">Logo</string>
-    <string name="register">Registrar</string>
+    <string name="register">Registar</string>
     <string name="login">Entrar</string>
-    <string name="username">Utilizador</string>
+    <string name="username">Utilizad3or</string>
     <string name="password">Senha</string>
     <string name="full_name">Nome Completo</string>
     <string name="email">Email</string>
@@ -12,13 +12,13 @@
     <string name="select_language">Escolher Idioma</string>
     <string name="english">Inglês</string>
     <string name="portuguese">Português</string>
-    <string name="Welcome">Bem-vindo!\nA Associação de Bilhar de Santarém</string>
+    <string name="Welcome">Bem-vindo!</string>
     <string name="Edit_Username">Utilizador</string>
     <string name="Edit_Password">Senha</string>
     <string name="BTN_iniciarsessao">Iniciar Sessão</string>
     <string name="BTN_registar">Registar</string>
     <string name="login_successful">Login bem-sucedido</string>
-    <string name="invalid_credentials">Nome de usuário ou senha inválidos</string>
+    <string name="invalid_credentials">Nome de utilizador ou senha inválidos</string>
     <string name="BackgroudPerfil">Backgroud_Perfil</string>
     <string name="trainer_prompt">Escolha um Treinador</string>
     <string name="Schedule_icon">Schedule_icon</string>
@@ -32,4 +32,5 @@
     <string name="registration_failed">Registo falhado</string>
     <string name="firebase_registration_failed">Registo Firebase Falhou</string>
     <string name="menu">Menu</string>
+    <string name="scoreboard">Marcador</string>
 </resources>

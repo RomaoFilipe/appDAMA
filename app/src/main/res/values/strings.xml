@@ -11,18 +11,18 @@
     <string name="select_language">Select Language</string>
     <string name="english">English</string>
     <string name="portuguese">Portuguese</string>
-    <string name="Welcome">Welcome!\nThe Santarém Billiards Association</string>
+    <string name="Welcome">Welcome!</string>
     <string name="Edit_Username">Username</string>
     <string name="Edit_Password">Password</string>
     <string name="BTN_iniciarsessao">Login</string>
-    <string name="BTN_registar">Registar</string>
+    <string name="BTN_registar">Register</string>
     <string name="login_successful">Login Successful</string>
     <string name="invalid_credentials">Invalid Username or Password</string>
-    <string name="BackgroudPerfil">Backgroud_Perfil</string>
-    <string name="app_name">AppDAMA</string>
-    <string name="trainer_prompt">Escolha um Treinador</string>
+    <string name="BackgroudPerfil">Backgroud_Profile</string>
+    <string name="app_name">ABSAN</string>
+    <string name="trainer_prompt">Pick a Coach</string>
     <string name="Schedule_icon">Schedule_icon</string>
-    <string name="Perfil_icon">Perfil_icon</string>
+    <string name="Perfil_icon">Profile_icon</string>
     <string name="agendar_aula">Schedule</string>
     <string name="perfil">Profile</string>
     <string name="empty_fields">Please fill all fields</string>
@@ -32,5 +32,6 @@
     <string name="registration_failed">Registration failed</string>
     <string name="firebase_registration_failed">Firebase registration failed</string>
     <string name="menu">Menu</string>
-    <string name="profile_update_failed" translatable="false">Falha ao atualizar o perfil</string>
+    <string name="profile_update_failed" translatable="false">Profile update fail</string>
+    <string name="scoreboard">Scoreboard</string>
 </resources>
