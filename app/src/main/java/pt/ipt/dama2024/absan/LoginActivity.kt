@@ -40,7 +40,8 @@ class LoginActivity : AppCompatActivity() {
                         .addOnCompleteListener(this) { task ->
                             if (task.isSuccessful) {
                                 Toast.makeText(this, getString(R.string.login_successful), Toast.LENGTH_SHORT).show()
-                                startActivity(Intent(this, HomeActivity::class.java))
+                                val intent = Intent(this, HomeActivity::class.java) // <-- Redireciona para HomeActivity
+                                startActivity(intent)
                                 finish()
                             } else {
                                 Toast.makeText(this, getString(R.string.invalid_credentials), Toast.LENGTH_SHORT).show()

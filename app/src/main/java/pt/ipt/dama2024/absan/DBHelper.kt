@@ -98,4 +98,15 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         db.close()
         return user
     }
+
+    fun updateUserProfileImage(username: String, profileImagePath: String): Boolean {
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(COLUMN_PROFILE_IMAGE_PATH, profileImagePath)
+
+        val result = db.update(TABLE_USERS, contentValues, "$COLUMN_USERNAME = ?", arrayOf(username))
+        db.close()
+        return result > 0
+    }
+
 }

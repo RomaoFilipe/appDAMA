@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -57,16 +58,30 @@ class RegisterActivity : AppCompatActivity() {
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            val success = dbHelper.addUser(fullName, email, phone, username, password)
-                            if (success) {
-                                Toast.makeText(this, getString(R.string.registration_successful), Toast.LENGTH_SHORT).show()
-                                Log.d("RegisterActivity", "Registration successful for user: $username")
-                                startActivity(Intent(this, LoginActivity::class.java))
-                                finish()
-                            } else {
-                                Toast.makeText(this, getString(R.string.registration_failed), Toast.LENGTH_SHORT).show()
-                                Log.d("RegisterActivity", "Registration failed for user: $username")
-                            }
+                            // Atualizar o perfil do usuário com o nome completo
+                            val user = auth.currentUser
+                            val profileUpdates = UserProfileChangeRequest.Builder()
+                                .setDisplayName(fullName)
+                                .build()
+
+                            user?.updateProfile(profileUpdates)
+                                ?.addOnCompleteListener { profileUpdateTask ->
+                                    if (profileUpdateTask.isSuccessful) {
+                                        val success = dbHelper.addUser(fullName, email, phone, username, password)
+                                        if (success) {
+                                            Toast.makeText(this, getString(R.string.registration_successful), Toast.LENGTH_SHORT).show()
+                                            Log.d("RegisterActivity", "Registration successful for user: $username")
+                                            startActivity(Intent(this, LoginActivity::class.java))
+                                            finish()
+                                        } else {
+                                            Toast.makeText(this, getString(R.string.registration_failed), Toast.LENGTH_SHORT).show()
+                                            Log.d("RegisterActivity", "Registration failed for user: $username")
+                                        }
+                                    } else {
+                                        Toast.makeText(this, getString(R.string.profile_update_failed), Toast.LENGTH_SHORT).show()
+                                        Log.d("RegisterActivity", "Profile update failed: ${profileUpdateTask.exception?.message}")
+                                    }
+                                }
                         } else {
                             Toast.makeText(this, getString(R.string.firebase_registration_failed), Toast.LENGTH_SHORT).show()
                             Log.d("RegisterActivity", "Firebase registration failed: ${task.exception?.message}")
