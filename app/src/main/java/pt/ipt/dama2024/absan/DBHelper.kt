@@ -99,23 +99,13 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         return user
     }
 
-    fun updateProfileImagePath(username: String, imagePath: String): Boolean {
+    fun updateUserProfileImage(username: String, profileImagePath: String): Boolean {
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(COLUMN_PROFILE_IMAGE_PATH, imagePath)
-        val result = db.update(TABLE_USERS, contentValues, "$COLUMN_USERNAME=?", arrayOf(username))
-        return result > 0
-    }
+        contentValues.put(COLUMN_PROFILE_IMAGE_PATH, profileImagePath)
 
-    fun getProfileImagePath(username: String): String? {
-        val db = this.readableDatabase
-        val cursor = db.query(TABLE_USERS, arrayOf(COLUMN_PROFILE_IMAGE_PATH), "$COLUMN_USERNAME=?", arrayOf(username), null, null, null)
-        if (cursor != null && cursor.moveToFirst()) {
-            val path = cursor.getString(cursor.getColumnIndex(COLUMN_PROFILE_IMAGE_PATH))
-            cursor.close()
-            return path
-        }
-        cursor.close()
-        return null
+        val result = db.update(TABLE_USERS, contentValues, "$COLUMN_USERNAME = ?", arrayOf(username))
+        db.close()
+        return result > 0
     }
 }

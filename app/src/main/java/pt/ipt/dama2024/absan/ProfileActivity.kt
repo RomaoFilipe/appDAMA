@@ -7,12 +7,16 @@ import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.github.dhaval2404.imagepicker.ImagePicker
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import pt.ipt.dama2024.absan.databinding.ActivityProfileBinding
 import java.io.File
 import java.io.FileInputStream
+import java.io.FileOutputStream
 import java.io.IOException
 
 class ProfileActivity : AppCompatActivity() {
@@ -20,7 +24,6 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
     private lateinit var dbHelper: DBHelper
     private var selectedImageUri: Uri? = null
-    private var imageFilePath: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,25 +31,9 @@ class ProfileActivity : AppCompatActivity() {
 
         dbHelper = DBHelper(this)
 
-        val username = intent.getStringExtra("username")
+        // Carregar dados do usuário autenticado do Firebase
+        loadUserData()
 
-        if (username != null) {
-            val user = dbHelper.getUserByUsername(username)
-            user?.let {
-                binding.textView.text = it.fullName
-                binding.textView2.text = it.email
-                // Carregar a imagem do perfil do banco de dados, se houver
-                val profileImagePath = dbHelper.getProfileImagePath(username)
-                profileImagePath?.let { path ->
-                    val file = File(path)
-                    if (file.exists()) {
-                        binding.imageView.setImageURI(Uri.fromFile(file))
-                    }
-                }
-            }
-        } else {
-            // Trate o caso em que o nome de usuário é nulo
-        }
 
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.BLUE))
 
@@ -56,6 +43,28 @@ class ProfileActivity : AppCompatActivity() {
                 .compress(1024)
                 .maxResultSize(1080, 1080)
                 .start()
+        }
+
+
+        // Carregar a imagem do perfil, se houver
+        loadImageFromInternalStorage()?.let {
+            Log.d("ProfileActivity", "Image loaded from internal storage: $it")
+            binding.imageView.setImageURI(it)
+        }
+
+        // Configura o botão "Back to Main Page"
+        binding.buttonBackToMainPage.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        // Configura o botão "Logout"
+        binding.buttonLogout.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
@@ -67,38 +76,47 @@ class ProfileActivity : AppCompatActivity() {
             binding.imageView.setImageURI(uri)
             uri?.let {
                 selectedImageUri = it
-                imageFilePath = getRealPathFromURI(uri)
-                // Salvar a imagem no armazenamento interno
-                imageFilePath?.let { filePath ->
-                    saveImageToInternalStorage(filePath)
-                    // Atualizar o caminho da imagem no banco de dados
-                    val username = intent.getStringExtra("username")
-                    username?.let {
-                        dbHelper.updateProfileImagePath(it, filePath)
-                    }
-                }
+                // Salvar a imagem no armazenamento específico do aplicativo
+                saveImageToInternalStorage(it)
             }
         }
     }
 
-    private fun getRealPathFromURI(uri: Uri): String? {
-        val cursor = contentResolver.query(uri, null, null, null, null)
-        cursor?.moveToFirst()
-        val columnIndex = cursor?.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
-        val filePath = cursor?.getString(columnIndex ?: -1)
-        cursor?.close()
-        return filePath
-    }
-
-    private fun saveImageToInternalStorage(filePath: String) {
+    private fun saveImageToInternalStorage(uri: Uri) {
         try {
-            val inputStream = FileInputStream(File(filePath))
-            val outputStream = openFileOutput("profile_image.jpg", Context.MODE_PRIVATE)
-            inputStream.copyTo(outputStream)
-            inputStream.close()
+            val inputStream = contentResolver.openInputStream(uri)
+            val file = File(filesDir, "profile_image.jpg")
+            val outputStream = FileOutputStream(file)
+            inputStream?.copyTo(outputStream)
+            inputStream?.close()
             outputStream.close()
+            Log.d("ProfileActivity", "Image saved to internal storage: ${file.absolutePath}")
         } catch (e: IOException) {
             e.printStackTrace()
+            Log.e("ProfileActivity", "Error saving image to internal storage: ${e.message}")
+        }
+    }
+
+    private fun loadImageFromInternalStorage(): Uri? {
+        val file = File(filesDir, "profile_image.jpg")
+        return if (file.exists()) {
+            Uri.fromFile(file)
+        } else {
+            Log.d("ProfileActivity", "No image found in internal storage")
+            null
+        }
+    }
+
+    private fun loadUserData() {
+        val user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
+        user?.let {
+            val name = it.displayName ?: "Nome do Usuário"
+            val email = it.email ?: "Email do Usuário"
+            binding.textView.text = name
+            binding.textView2.text = email
         }
     }
 }
+
+// Tentativa de correção de merge
+
