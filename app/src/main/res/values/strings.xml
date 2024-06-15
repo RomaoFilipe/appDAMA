@@ -25,5 +25,11 @@
     <string name="Perfil_icon">Perfil_icon</string>
     <string name="agendar_aula">Schedule</string>
     <string name="perfil">Profile</string>
-
+    <string name="empty_fields">Please fill all fields</string>
+    <string name="passwords_do_not_match">Passwords do not match</string>
+    <string name="user_already_exists">User already exists</string>
+    <string name="registration_successful">Registration successful</string>
+    <string name="registration_failed">Registration failed</string>
+    <string name="firebase_registration_failed">Firebase registration failed</string>
+    <string name="profile_update_failed" translatable="false">Falha ao atualizar o perfil</string>
 </resources>

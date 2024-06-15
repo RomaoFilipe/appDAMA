@@ -84,7 +84,7 @@
                         android:id="@+id/textView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="lionfischer@gmail.com"
+                        android:text="Email do Usuário"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="@+id/textView"
                         app:layout_constraintStart_toStartOf="@+id/textView"
@@ -134,31 +134,34 @@
                         android:textAlignment="viewStart" />
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/buttonBackToMainPage"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
-                        style="@android:style/Widget.Button"
-                        android:background="@drawable/btn_background_2"
-                        android:layout_marginEnd="32dp"
                         android:layout_marginStart="32dp"
-                        android:layout_marginTop="16dp"
-                        android:text="Back to Main page"
-                        android:textColor="#ffffff"
+                        android:layout_marginEnd="32dp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
-                        android:textSize="18sp" />
+                        style="@android:style/Widget.Button"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/btn_background_2"
+                        android:text="Back to Main page"
+                        android:textColor="#ffffff" />
 
                     <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/buttonLogout"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
-                        style="@android:style/Widget.Button"
-                        android:background="@drawable/btn_background_3"
-                        android:layout_marginEnd="32dp"
                         android:layout_marginStart="32dp"
-                        android:layout_marginTop="16dp"
-                        android:text="logout"
-                        android:textColor="@color/White"
+                        android:layout_marginEnd="32dp"
+                        android:textSize="18sp"
                         android:textStyle="bold"
-                        android:textAllCaps="true"
-                        android:textSize="18sp" />
+                        style="@android:style/Widget.Button"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/btn_background_3"
+                        android:text="Logout"
+                        android:textColor="@color/White"
+                        android:textAllCaps="true"/>
+
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

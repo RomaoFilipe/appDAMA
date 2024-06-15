@@ -2,6 +2,7 @@ package pt.ipt.dama2024.absan
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
@@ -26,13 +27,22 @@ class ScheduleLessonActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_schedulelessonactivity)
 
+        firestore = FirebaseFirestore.getInstance()
+        auth = FirebaseAuth.getInstance()
+
+        // Verificar se o usuário está autenticado
+        val currentUser = auth.currentUser
+        if (currentUser == null) {
+            // Redirecionar para a tela de login se o usuário não estiver autenticado
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+            return
+        }
+
         spinnerTrainerName = findViewById(R.id.spinnerTrainerName)
         editTextDate = findViewById(R.id.editTextDate)
         editTextTime = findViewById(R.id.editTextTime)
         val buttonSchedule = findViewById<Button>(R.id.buttonSchedule)
-
-        firestore = FirebaseFirestore.getInstance()
-        auth = FirebaseAuth.getInstance()
 
         // Configurar o Spinner
         val trainers = arrayOf("Treinador1", "Treinador2")
