@@ -34,4 +34,8 @@
     <string name="menu">Menu</string>
     <string name="profile_update_failed" translatable="false">Profile update fail</string>
     <string name="scoreboard">Scoreboard</string>
+    <string name="lbllogout">Logout</string>
+    <string name="lblback_to_main_page">Back to Main page</string>
+    <string name="lblprofile_information">Profile Information</string>
+    <string name="lblaccount_settings">Account Settings</string>
 </resources>

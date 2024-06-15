@@ -113,7 +113,7 @@
                         android:drawableStart="@drawable/perfilsicon"
                         android:drawablePadding="20dp"
                         android:paddingStart="20dp"
-                        android:text="Perfil Information"
+                        android:text="@string/lblprofile_information"
                         android:textAlignment="viewStart" />
 
                     <androidx.appcompat.widget.AppCompatButton
@@ -130,7 +130,7 @@
                         android:drawableStart="@drawable/settingsicon"
                         android:drawablePadding="20dp"
                         android:paddingStart="20dp"
-                        android:text="Account Settings"
+                        android:text="@string/lblaccount_settings"
                         android:textAlignment="viewStart" />
 
                     <androidx.appcompat.widget.AppCompatButton
@@ -140,11 +140,12 @@
                         android:layout_marginStart="32dp"
                         android:layout_marginEnd="32dp"
                         android:textSize="18sp"
+                        android:textAllCaps="true"
                         android:textStyle="bold"
                         style="@android:style/Widget.Button"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/btn_background_2"
-                        android:text="Back to Main page"
+                        android:text="@string/lblback_to_main_page"
                         android:textColor="#ffffff" />
 
                     <androidx.appcompat.widget.AppCompatButton
@@ -158,7 +159,7 @@
                         style="@android:style/Widget.Button"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/btn_background_3"
-                        android:text="Logout"
+                        android:text="@string/lbllogout"
                         android:textColor="@color/White"
                         android:textAllCaps="true"/>
 

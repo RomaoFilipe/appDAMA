@@ -33,4 +33,8 @@
     <string name="firebase_registration_failed">Registo Firebase Falhou</string>
     <string name="menu">Menu</string>
     <string name="scoreboard">Marcador</string>
+    <string name="lbllogout">Terminar Sessão</string>
+    <string name="lblback_to_main_page">Voltar</string>
+    <string name="lblprofile_information">Detalhe Perfil</string>
+    <string name="lblaccount_settings">Definições Conta</string>
 </resources>
