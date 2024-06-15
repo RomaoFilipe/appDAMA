@@ -1,11 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Welcome">Welcome!\nThe Santarém Billiards Association</string>
+    <string name="logo" translatable="false">Logo</string>
+    <string name="register">Register</string>
+    <string name="login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="full_name">Full Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone Number</string>
+    <string name="select_language">Select Language</string>
+    <string name="english">English</string>
+    <string name="portuguese">Portuguese</string>
+    <string name="Welcome">Welcome!</string>
+    <string name="Edit_Username">Username</string>
     <string name="Edit_Password">Password</string>
     <string name="BTN_iniciarsessao">Login</string>
-    <string name="BTN_registar">Registar</string>
+    <string name="BTN_registar">Register</string>
+    <string name="login_successful">Login Successful</string>
+    <string name="invalid_credentials">Invalid Username or Password</string>
+    <string name="BackgroudPerfil">Backgroud_Profile</string>
+    <string name="app_name">ABSAN</string>
+    <string name="trainer_prompt">Pick a Coach</string>
     <string name="Schedule_icon">Schedule_icon</string>
-    <string name="Perfil_icon">Perfil_icon</string>
+    <string name="Perfil_icon">Profile_icon</string>
     <string name="agendar_aula">Schedule</string>
     <string name="perfil">Profile</string>
+    <string name="empty_fields">Please fill all fields</string>
+    <string name="passwords_do_not_match">Passwords do not match</string>
+    <string name="user_already_exists">User already exists</string>
+    <string name="registration_successful">Registration successful</string>
+    <string name="registration_failed">Registration failed</string>
+    <string name="firebase_registration_failed">Firebase registration failed</string>
+    <string name="menu">Menu</string>
+    <string name="profile_update_failed" translatable="false">Profile update fail</string>
+    <string name="scoreboard">Scoreboard</string>
 </resources>
