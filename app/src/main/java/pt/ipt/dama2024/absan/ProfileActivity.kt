@@ -115,3 +115,5 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 }
+
+// Tentativa de correção de merge
