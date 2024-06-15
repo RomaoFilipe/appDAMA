@@ -108,5 +108,4 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         db.close()
         return result > 0
     }
-
 }

@@ -34,6 +34,7 @@ class ProfileActivity : AppCompatActivity() {
         // Carregar dados do usuário autenticado do Firebase
         loadUserData()
 
+
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.BLUE))
 
         binding.floatingActionButton.setOnClickListener {
@@ -43,6 +44,7 @@ class ProfileActivity : AppCompatActivity() {
                 .maxResultSize(1080, 1080)
                 .start()
         }
+
 
         // Carregar a imagem do perfil, se houver
         loadImageFromInternalStorage()?.let {
@@ -117,3 +119,4 @@ class ProfileActivity : AppCompatActivity() {
 }
 
 // Tentativa de correção de merge
+
