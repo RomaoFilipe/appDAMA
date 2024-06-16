@@ -100,7 +100,7 @@
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/Gray"
             android:hint="@string/lblrepeatpassword"
-            android:autofillHints="password"
+            android:autofillHints="retype password"
             android:inputType="textPassword" />
 
         <Button
