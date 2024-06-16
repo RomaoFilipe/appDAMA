@@ -41,6 +41,11 @@
     <string name="back">BT_Back</string>
     <string name="BTN_stop">Stop</string>
     <string name="TXT_sound_level_0">Sound Level: 0</string>
-    <string name="TXT_sound_monitor">Sound Monitor</string>
+    <string name="TXT_sound_monitor">Power Break</string>
     <string name="edit">IconEdit</string>
+    <string name="cbreak">Break</string>
+    <string name="cdbreak">Break</string>
+    <string name="lblstoprecording">Stop Recording</string>
+    <string name="lblmaxsoung">Higher Break Sound: 0db</string>
+    <string name="lblpowerbreak">Power Break: 0 dB</string>
 </resources>

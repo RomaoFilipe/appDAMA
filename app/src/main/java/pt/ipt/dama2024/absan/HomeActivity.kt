@@ -16,10 +16,12 @@ class HomeActivity : AppCompatActivity() {
         val cardViewProfile = findViewById<CardView>(R.id.cardViewProfile)
         val cardViewScheduleLesson = findViewById<CardView>(R.id.cardViewScheduleLesson)
         val cardViewScoreboard = findViewById<CardView>(R.id.cardViewScoreboard)
+        val cardViewBreak = findViewById<CardView>(R.id.cardViewBreak) // Adicionando o cardViewBreak
 
         setCircleBackground(cardViewProfile, R.color.red)
         setCircleBackground(cardViewScheduleLesson, R.color.yellow)
         setCircleBackground(cardViewScoreboard, R.color.blue)
+        setCircleBackground(cardViewBreak, R.color.yellow) // Definindo a cor de fundo para o cardViewBreak
 
         cardViewProfile.setOnClickListener {
             val intent = Intent(this, ProfileActivity::class.java)
@@ -33,6 +35,11 @@ class HomeActivity : AppCompatActivity() {
 
         cardViewScoreboard.setOnClickListener {
             val intent = Intent(this, ScoreboardActivity::class.java)
+            startActivity(intent)
+        }
+
+        cardViewBreak.setOnClickListener {
+            val intent = Intent(this, SoundMonitorActivity::class.java)
             startActivity(intent)
         }
     }

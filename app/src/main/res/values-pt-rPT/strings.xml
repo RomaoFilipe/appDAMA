@@ -40,7 +40,7 @@
     <string name="back">BT_Back</string>
     <string name="BTN_stop">Parar</string>
     <string name="TXT_sound_level_0">Nível de Som: 0</string>
-    <string name="TXT_sound_monitor">Monitor de Som</string>
+    <string name="TXT_sound_monitor">Poder de Abertura</string>
     <string name="edit">IconEdit</string>
     <string name="lblregister">Registar</string>
     <string name="lblfullname">Nome Completo</string>
@@ -50,4 +50,9 @@
     <string name="lblrepeatpassword">Repetir Senha</string>
     <string name="hintemail">Email</string>
     <string name="logo_description">Logo da app</string>
+    <string name="cbreak">Break</string>
+    <string name="cdbreak">Break</string>
+    <string name="lblstoprecording">Stop Recording</string>
+    <string name="lblmaxsoung">Higher Break Sound: 0db</string>
+    <string name="lblpowerbreak">Power Break: 0 dB</string>
 </resources>

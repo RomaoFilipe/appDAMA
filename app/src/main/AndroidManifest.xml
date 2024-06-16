@@ -4,9 +4,12 @@
 
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
 
+    <!-- Declaração da característica da câmera -->
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
 
     <application
         android:allowBackup="true"
@@ -18,9 +21,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ABSAN"
         tools:targetApi="31">
-        <activity
-            android:name=".SoundMonitorActivity"
-            android:exported="false" />
+        <activity android:name=".SoundMonitorActivity"/>
         <activity android:name=".ScoreboardActivity" />
         <activity android:name=".ScheduleLessonActivity" />
         <activity android:name=".ProfileActivity" />
@@ -36,7 +37,6 @@
             tools:ignore="DuplicateActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

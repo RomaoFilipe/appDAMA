@@ -31,7 +31,7 @@ class ScoreboardActivity : AppCompatActivity() {
         val decrementTeam1 = findViewById<MaterialButton>(R.id.decrementTeam1)
         val decrementTeam2 = findViewById<MaterialButton>(R.id.decrementTeam2)
         val mainMenuButton = findViewById<MaterialButton>(R.id.mainMenuButton)
-        val microphoneButton = findViewById<MaterialButton>(R.id.microphoneButton)
+
 
         team1Button.setOnClickListener {
             score1++
@@ -61,10 +61,6 @@ class ScoreboardActivity : AppCompatActivity() {
             finish()
         }
 
-        microphoneButton.setOnClickListener {
-            val intent = Intent(this, SoundMonitorActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     private fun updateScores() {

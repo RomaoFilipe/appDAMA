@@ -1,75 +1,46 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SoundMonitorActivity"
-    android:background="@android:color/white"
-    android:padding="16dp">
+    android:orientation="vertical"
+    tools:context=".SoundMonitorActivity">
 
-    <!-- Botão de Voltar -->
-    <ImageButton
-        android:id="@+id/buttonBack"
-        android:layout_width="64dp"
-        android:layout_height="59dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="10dp"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/back"
-        android:src="@drawable/ic_arrow_back" />
-
-    <!-- Título da Atividade -->
-    <TextView
-        android:id="@+id/textViewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="@string/TXT_sound_monitor"
-        android:textColor="@android:color/black"
-        android:textSize="28sp"
-        android:textStyle="bold" />
-
-    <!-- Indicador de Nível de Som (ProgressBar) -->
-    <ProgressBar
-        android:id="@+id/progressBarSoundLevel"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textViewTitle"
-        android:layout_marginTop="32dp"
-        android:max="32767"
-        android:progress="0"
-        android:progressTint="@color/colorAccent"
-        android:layout_marginHorizontal="16dp" />
-
-    <!-- Nível de Som (TextView) -->
     <TextView
         android:id="@+id/textViewSoundLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/TXT_sound_level_0"
-        android:textSize="24sp"
-        android:textColor="@android:color/black"
-        android:layout_below="@id/progressBarSoundLevel"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:text="@string/lblpowerbreak"
+        android:textSize="18sp" />
 
-    <!-- Botão de Parar -->
+    <ProgressBar
+        android:id="@+id/progressBarSoundLevel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progress="0"
+        android:max="32767" />
+
+    <TextView
+        android:id="@+id/textViewMaxSoundLevel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lblmaxsoung"
+        android:textSize="18sp" />
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonStop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/BTN_stop"
-        android:textSize="18sp"
-        android:textColor="@android:color/white"
-        android:backgroundTint="@color/colorPrimary"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="32dp"
-        android:paddingHorizontal="32dp"
-        app:cornerRadius="25dp" />
-</RelativeLayout>
+        android:text="@string/lblstoprecording" />
+
+    <ImageButton
+        android:id="@+id/buttonBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:padding="8dp"
+        android:src="@drawable/ic_arrow_back"
+        android:contentDescription="@string/TXT_sound_monitor"
+        android:background="?attr/selectableItemBackground"
+        android:layout_marginTop="16dp" />
+</LinearLayout>

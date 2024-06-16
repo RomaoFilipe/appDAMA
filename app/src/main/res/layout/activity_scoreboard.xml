@@ -174,17 +174,5 @@
         android:backgroundTint="@color/White"
         app:cornerRadius="25dp"/>
 
-    <!-- Botão Microfone para acessar o SoundMonitorActivity -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/microphoneButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Microfone"
-        android:textColor="@android:color/black"
-        android:textAllCaps="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/White"
-        app:cornerRadius="25dp"/>
+
 </RelativeLayout>
