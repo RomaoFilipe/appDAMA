@@ -12,7 +12,8 @@
         android:layout_height="110dp"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
-        android:src="@drawable/logowhite" />
+        android:src="@drawable/logowhite"
+        android:contentDescription="@string/logo_description"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +27,7 @@
             android:id="@+id/welcomeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registo"
+            android:text="@string/lblregister"
             android:textSize="20sp"
             android:layout_gravity="center"
             android:textColor="@color/black"
@@ -43,7 +44,9 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/Gray"
-            android:hint="Nome Completo" />
+            android:hint="@string/lblfullname"
+            android:inputType="textPersonName"
+            android:autofillHints="name" />
 
         <EditText
             android:id="@+id/etEmail"
@@ -52,7 +55,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/Gray"
-            android:hint="Email"
+            android:hint="@string/hintemail"
+            android:autofillHints="emailAddress"
             android:inputType="textEmailAddress" />
 
         <EditText
@@ -62,7 +66,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/Gray"
-            android:hint="Número de Telefone"
+            android:hint="@string/lblphone"
+            android:autofillHints="phone"
             android:inputType="phone" />
 
         <EditText
@@ -72,7 +77,9 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/Gray"
-            android:hint="Nome de Usuário" />
+            android:hint="@string/lbluser"
+            android:autofillHints="username"
+            android:inputType="textPersonName"/>
 
         <EditText
             android:id="@+id/etPasswordRegister"
@@ -81,7 +88,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/Gray"
-            android:hint="Senha"
+            android:hint="@string/lblpassword"
+            android:autofillHints="password"
             android:inputType="textPassword" />
 
         <EditText
@@ -91,7 +99,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/Gray"
-            android:hint="Confirmar Senha"
+            android:hint="@string/lblrepeatpassword"
+            android:autofillHints="password"
             android:inputType="textPassword" />
 
         <Button
@@ -102,7 +111,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rectangle_button"
-            android:text="Registrar"/>
+            android:text="@string/register"/>
 
     </LinearLayout>
 </LinearLayout>
