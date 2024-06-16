@@ -37,4 +37,9 @@
     <string name="lblback_to_main_page">Voltar</string>
     <string name="lblprofile_information">Detalhe Perfil</string>
     <string name="lblaccount_settings">Definições Conta</string>
+    <string name="back">BT_Back</string>
+    <string name="BTN_stop">Parar</string>
+    <string name="TXT_sound_level_0">Nível de Som: 0</string>
+    <string name="TXT_sound_monitor">Monitor de Som</string>
+    <string name="edit">IconEdit</string>
 </resources>

@@ -1,90 +1,190 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:weightSum="2">
+    tools:context=".ScoreboardActivity"
+    android:background="@android:color/white">
 
+    <!-- LinearLayout horizontal para os scores e botões de incremento/decremento -->
     <LinearLayout
-        android:layout_width="0dp"
+        android:id="@+id/scoreLayout"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:background="#FF0000">
+        android:orientation="horizontal"
+        android:weightSum="2">
 
-        <TextView
-            android:id="@+id/scoreTeam1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="100sp"
-            android:textColor="#FFFFFF"
-            android:layout_gravity="center"
-            tools:ignore="HardcodedText" />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@color/red">
 
-        <Button
-            android:id="@+id/team1Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+1"
-            android:textSize="20sp"
-            android:layout_gravity="center"
-            tools:ignore="HardcodedText" />
+            <!-- Nome da Equipe 1 com ícone de edição -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
 
-        <Button
-            android:id="@+id/decrementTeam1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-1"
-            android:layout_gravity="start|bottom"
-            android:layout_margin="16dp"
-            tools:ignore="HardcodedText" />
+                <EditText
+                    android:id="@+id/team1Name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Team 1"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    tools:ignore="HardcodedText" />
+
+                <ImageButton
+                    android:id="@+id/editTeam1Name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_edit_24"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/edit" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/scoreTeam1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="100sp"
+                android:textColor="@android:color/white"
+                android:layout_gravity="center"
+                tools:ignore="HardcodedText" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/team1Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+1"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/colorPrimary"
+                android:textColor="@android:color/white"
+                app:cornerRadius="50dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                tools:ignore="HardcodedText" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/decrementTeam1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-1"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/colorPrimary"
+                android:textColor="@android:color/white"
+                app:cornerRadius="50dp"
+                android:layout_marginTop="8dp"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@color/blue">
+
+            <!-- Nome da Equipe 2 com ícone de edição -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+
+                <EditText
+                    android:id="@+id/team2Name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Team 2"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    tools:ignore="HardcodedText" />
+
+                <ImageButton
+                    android:id="@+id/editTeam2Name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_edit_24"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/edit" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/scoreTeam2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="100sp"
+                android:textColor="@android:color/white"
+                android:layout_gravity="center"
+                tools:ignore="HardcodedText" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/team2Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+1"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/colorPrimary"
+                android:textColor="@android:color/white"
+                app:cornerRadius="50dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
+                tools:ignore="HardcodedText" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/decrementTeam2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-1"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/colorPrimary"
+                android:textColor="@android:color/white"
+                app:cornerRadius="50dp"
+                android:layout_marginTop="8dp"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:gravity="center"
-        android:background="#0000FF">
-
-        <TextView
-            android:id="@+id/scoreTeam2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="0"
-            android:textSize="100sp"
-            android:textColor="#FFFFFF"
-            android:layout_gravity="center"
-            tools:ignore="HardcodedText" />
-
-        <Button
-            android:id="@+id/team2Button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+1"
-            android:textSize="20sp"
-            android:layout_gravity="center"
-            tools:ignore="HardcodedText" />
-
-        <Button
-            android:id="@+id/decrementTeam2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-1"
-            android:layout_gravity="end|bottom"
-            android:layout_margin="16dp" />
-    </LinearLayout>
-
-    <Button
+    <!-- Botão Menu sobreposto no centro -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/mainMenuButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/menu"
-        android:layout_gravity="center"
-        android:layout_margin="16dp"
-        android:background="#CCCCCC"
-        android:textColor="#000000"/>
-</LinearLayout>
+        android:textColor="@android:color/black"
+        android:textAllCaps="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/White"
+        app:cornerRadius="25dp"/>
+
+    <!-- Botão Microfone para acessar o SoundMonitorActivity -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/microphoneButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Microfone"
+        android:textColor="@android:color/black"
+        android:textAllCaps="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/White"
+        app:cornerRadius="25dp"/>
+</RelativeLayout>

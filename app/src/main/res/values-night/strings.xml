@@ -38,4 +38,9 @@
     <string name="lblback_to_main_page">Back to Main page</string>
     <string name="lblprofile_information">Profile Information</string>
     <string name="lblaccount_settings">Account Settings</string>
+    <string name="back">BT_Back</string>
+    <string name="BTN_stop">Stop</string>
+    <string name="TXT_sound_level_0">Sound Level: 0</string>
+    <string name="TXT_sound_monitor">Sound Monitor</string>
+    <string name="edit">IconEdit</string>
 </resources>

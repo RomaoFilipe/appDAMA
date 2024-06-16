@@ -5,12 +5,13 @@ import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Spinner
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.Calendar
@@ -19,7 +20,7 @@ class ScheduleLessonActivity : AppCompatActivity() {
 
     private lateinit var firestore: FirebaseFirestore
     private lateinit var auth: FirebaseAuth
-    private lateinit var spinnerTrainerName: Spinner
+    private lateinit var selectedTrainer: Trainer
     private lateinit var editTextDate: EditText
     private lateinit var editTextTime: EditText
 
@@ -39,29 +40,34 @@ class ScheduleLessonActivity : AppCompatActivity() {
             return
         }
 
-        spinnerTrainerName = findViewById(R.id.spinnerTrainerName)
+        val recyclerViewTrainers = findViewById<RecyclerView>(R.id.recyclerViewTrainers)
         editTextDate = findViewById(R.id.editTextDate)
         editTextTime = findViewById(R.id.editTextTime)
         val buttonSchedule = findViewById<Button>(R.id.buttonSchedule)
+        val buttonBackToHome = findViewById<ImageButton>(R.id.buttonBackToHome)
 
-        // Configurar o Spinner
-        val trainers = arrayOf("Treinador1", "Treinador2")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, trainers)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnerTrainerName.adapter = adapter
+        // Configurar o RecyclerView
+        val trainers = listOf(
+            Trainer("Jack Lisowski", R.drawable.trainer1),
+            Trainer("Ronnie O'Sullivan", R.drawable.trainer2)
+        )
+        val adapter = TrainerAdapter(trainers) { trainer ->
+            selectedTrainer = trainer
+        }
+        recyclerViewTrainers.layoutManager = LinearLayoutManager(this)
+        recyclerViewTrainers.adapter = adapter
 
         editTextDate.setOnClickListener { showDatePickerDialog() }
         editTextTime.setOnClickListener { showTimePickerDialog() }
 
         buttonSchedule.setOnClickListener {
-            val trainerName = spinnerTrainerName.selectedItem.toString()
             val date = editTextDate.text.toString()
             val time = editTextTime.text.toString()
             val user = auth.currentUser?.email ?: "unknown"
 
-            if (date.isNotEmpty() && time.isNotEmpty()) {
+            if (::selectedTrainer.isInitialized && date.isNotEmpty() && time.isNotEmpty()) {
                 val lesson = hashMapOf(
-                    "trainerName" to trainerName,
+                    "trainerName" to selectedTrainer.name,
                     "date" to date,
                     "time" to time,
                     "user" to user
@@ -83,6 +89,11 @@ class ScheduleLessonActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this, "Por favor, preencha todos os campos", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        buttonBackToHome.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
         }
     }
 
