@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mestrado em Eng. Informática\n1º ano, 2º semestre\nAno Letivo 2023/24"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="▪ Nº e nome dos autores do trabalho;"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Frederico Carneiro Nº 24391\nRomão Filipe Nº 20923"
+                android:textSize="14sp"
+                android:textAlignment="center"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="▪ Identificação das bibliotecas, frameworks e código de terceiros usados no trabalho, incluindo de onde foram obtidas:"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AndroidX Libraries:\n- androidx.core:core-ktx\n- androidx.appcompat:appcompat\n- androidx.activity:activity\n- androidx.constraintlayout:constraintlayout\n- androidx.databinding:databinding-runtime\n- androidx.cardview:cardview\n- androidx.room:room-runtime\n- androidx.room:room-compiler\n- androidx.test:runner\n- androidx.test.ext:junit\n- androidx.test.espresso:espresso-core"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Google Libraries:\n- com.google.android.material:material\n- com.google.firebase:firebase-bom\n- com.google.firebase:firebase-analytics\n- com.google.firebase:firebase-firestore-ktx\n- com.google.firebase:firebase-auth-ktx"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Other Libraries:\n- com.github.dhaval2404:imagepicker"
+                android:textSize="14sp"
+                android:layout_marginBottom="8dp" />
+
+            <Button
+                android:id="@+id/btnInfo"
+                style="@style/ButtonStyle"
+                android:layout_width="213dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rectangle_button"
+                android:text="@string/back_to_login"
+                android:layout_gravity="center"
+                android:textColor="@color/White"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:drawableLeft="@drawable/ic_arrow_white"
+                android:drawablePadding="8dp" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
