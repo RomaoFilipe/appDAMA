@@ -21,22 +21,25 @@ import java.io.IOException
 
 class ProfileActivity : AppCompatActivity() {
 
+    /* Declaração das variáveis */
     private lateinit var binding: ActivityProfileBinding
     private lateinit var dbHelper: DBHelper
     private var selectedImageUri: Uri? = null
 
+    /* Método chamado quando a atividade é criada */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_profile)
 
         dbHelper = DBHelper(this)
 
-        // Carregar dados do usuário autenticado do Firebase
+        /* Carregar dados do utilizador autenticado do Firebase */
         loadUserData()
 
-
+        /* Define a cor de fundo da ActionBar */
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.BLUE))
 
+        /* Configura o comportamento do botão flutuante para selecionar uma imagem */
         binding.floatingActionButton.setOnClickListener {
             ImagePicker.with(this)
                 .crop()
@@ -46,20 +49,20 @@ class ProfileActivity : AppCompatActivity() {
         }
 
 
-        // Carregar a imagem do perfil, se houver
+        /* Carregar a imagem do perfil, se houver */
         loadImageFromInternalStorage()?.let {
             Log.d("ProfileActivity", "Image loaded from internal storage: $it")
             binding.imageView.setImageURI(it)
         }
 
-        // Configura o botão "Back to Main Page"
+        /* Configura o botão "Back to Main Page" */
         binding.buttonBackToMainPage.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
             finish()
         }
 
-        // Configura o botão "Logout"
+        /* Configura o botão "Logout" */
         binding.buttonLogout.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(this, LoginActivity::class.java)
@@ -76,12 +79,13 @@ class ProfileActivity : AppCompatActivity() {
             binding.imageView.setImageURI(uri)
             uri?.let {
                 selectedImageUri = it
-                // Salvar a imagem no armazenamento específico do aplicativo
+                /* Salvar a imagem no armazenamento específico do aplicativo */
                 saveImageToInternalStorage(it)
             }
         }
     }
 
+    /* Método para salvar a imagem no armazenamento interno */
     private fun saveImageToInternalStorage(uri: Uri) {
         try {
             val inputStream = contentResolver.openInputStream(uri)
@@ -97,6 +101,7 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
+    /* Método para carregar a imagem do armazenamento interno */
     private fun loadImageFromInternalStorage(): Uri? {
         val file = File(filesDir, "profile_image.jpg")
         return if (file.exists()) {
@@ -107,6 +112,7 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 
+    /* Método para carregar os dados do utilizador autenticado */
     private fun loadUserData() {
         val user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
         user?.let {
@@ -117,6 +123,3 @@ class ProfileActivity : AppCompatActivity() {
         }
     }
 }
-
-// Tentativa de correção de merge
-

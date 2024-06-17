@@ -18,12 +18,14 @@ import java.util.Calendar
 
 class ScheduleLessonActivity : AppCompatActivity() {
 
+    /* Declaração das variáveis firestore, auth, selectedTrainer, editTextDate, e editTextTime */
     private lateinit var firestore: FirebaseFirestore
     private lateinit var auth: FirebaseAuth
     private lateinit var selectedTrainer: Trainer
     private lateinit var editTextDate: EditText
     private lateinit var editTextTime: EditText
 
+    /* Método chamado quando a atividade é criada */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_schedulelessonactivity)
@@ -31,10 +33,10 @@ class ScheduleLessonActivity : AppCompatActivity() {
         firestore = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
 
-        // Verificar se o usuário está autenticado
+        /* Verificar se o utilizador está autenticado */
         val currentUser = auth.currentUser
         if (currentUser == null) {
-            // Redirecionar para a tela de login se o usuário não estiver autenticado
+            /* Redirecionar para a tela de login se o utilizador não estiver autenticado */
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
             return
@@ -46,7 +48,7 @@ class ScheduleLessonActivity : AppCompatActivity() {
         val buttonSchedule = findViewById<Button>(R.id.buttonSchedule)
         val buttonBackToHome = findViewById<ImageButton>(R.id.buttonBackToHome)
 
-        // Configurar o RecyclerView
+        /* Configurar o RecyclerView */
         val trainers = listOf(
             Trainer("Jack Lisowski", R.drawable.trainer1),
             Trainer("Ronnie O'Sullivan", R.drawable.trainer2)
@@ -57,14 +59,17 @@ class ScheduleLessonActivity : AppCompatActivity() {
         recyclerViewTrainers.layoutManager = LinearLayoutManager(this)
         recyclerViewTrainers.adapter = adapter
 
+        /* Configura os campos de data e hora */
         editTextDate.setOnClickListener { showDatePickerDialog() }
         editTextTime.setOnClickListener { showTimePickerDialog() }
 
+        /* Configura o botão de agendamento */
         buttonSchedule.setOnClickListener {
             val date = editTextDate.text.toString()
             val time = editTextTime.text.toString()
             val user = auth.currentUser?.email ?: "unknown"
 
+            /* Verifica se os campos estão preenchidos */
             if (::selectedTrainer.isInitialized && date.isNotEmpty() && time.isNotEmpty()) {
                 val lesson = hashMapOf(
                     "trainerName" to selectedTrainer.name,
@@ -73,9 +78,10 @@ class ScheduleLessonActivity : AppCompatActivity() {
                     "user" to user
                 )
 
-                // Adicionar log para verificar os dados
+                /* Adicionar log para verificar os dados */
                 Log.d("ScheduleLesson", "Agendamento: $lesson")
 
+                /* Salva o agendamento no Firestore */
                 firestore.collection("lessons")
                     .add(lesson)
                     .addOnSuccessListener {
@@ -91,12 +97,14 @@ class ScheduleLessonActivity : AppCompatActivity() {
             }
         }
 
+        /* Configura o botão de voltar para a tela principal */
         buttonBackToHome.setOnClickListener {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
     }
 
+    /* Método para mostrar o DatePickerDialog */
     private fun showDatePickerDialog() {
         val calendar = Calendar.getInstance()
         val year = calendar.get(Calendar.YEAR)
@@ -113,6 +121,7 @@ class ScheduleLessonActivity : AppCompatActivity() {
         datePickerDialog.show()
     }
 
+    /* Método para mostrar o TimePickerDialog */
     private fun showTimePickerDialog() {
         val calendar = Calendar.getInstance()
         val hour = calendar.get(Calendar.HOUR_OF_DAY)
