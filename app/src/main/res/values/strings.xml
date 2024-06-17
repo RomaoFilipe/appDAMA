@@ -51,4 +51,7 @@
     <string name="lblrepeatpassword">Repeat Password</string>
     <string name="hintemail">Email</string>
     <string name="logo_description">Logo of the application</string>
+    <string name="txtusername">Username</string>
+    <string name="txtusernameemail">User Email</string>
+    <string name="img_photo">photo</string>
 </resources>

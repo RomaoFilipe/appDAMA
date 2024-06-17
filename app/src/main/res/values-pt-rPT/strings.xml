@@ -50,4 +50,7 @@
     <string name="lblrepeatpassword">Repetir Senha</string>
     <string name="hintemail">Email</string>
     <string name="logo_description">Logo da app</string>
+    <string name="txtusername">Username</string>
+    <string name="txtusernameemail">User Email</string>
+    <string name="img_photo">photo</string>
 </resources>

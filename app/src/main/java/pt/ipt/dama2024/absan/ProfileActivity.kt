@@ -116,8 +116,8 @@ class ProfileActivity : AppCompatActivity() {
     private fun loadUserData() {
         val user: FirebaseUser? = FirebaseAuth.getInstance().currentUser
         user?.let {
-            val name = it.displayName ?: "Nome do Usuário"
-            val email = it.email ?: "Email do Usuário"
+            val name = it.displayName ?: "@string/txtusername"
+            val email = it.email ?: "@string/txtusernameemail"
             binding.textView.text = name
             binding.textView2.text = email
         }
