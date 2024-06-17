@@ -38,4 +38,17 @@
     <string name="lblback_to_main_page">Back to Main page</string>
     <string name="lblprofile_information">Profile Information</string>
     <string name="lblaccount_settings">Account Settings</string>
+    <string name="back">BT_Back</string>
+    <string name="BTN_stop">Stop</string>
+    <string name="TXT_sound_level_0">Sound Level: 0</string>
+    <string name="TXT_sound_monitor">Sound Monitor</string>
+    <string name="edit">IconEdit</string>
+    <string name="lblregister">Register</string>
+    <string name="lblfullname">Full Name</string>
+    <string name="lblphone">Phone Number</string>
+    <string name="lbluser">Username</string>
+    <string name="lblpassword">Password</string>
+    <string name="lblrepeatpassword">Repeat Password</string>
+    <string name="hintemail">Email</string>
+    <string name="logo_description">Logo of the application</string>
 </resources>

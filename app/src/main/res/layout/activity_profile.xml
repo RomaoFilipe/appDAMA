@@ -4,25 +4,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- ConstraintLayout principal -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ProfileActivity"
         android:background="#FFFFFF">
 
+        <!-- ScrollView para conteúdo rolável -->
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <!-- LinearLayout para organizar os elementos verticalmente -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
+                <!-- ConstraintLayout para organizar a imagem de fundo e a imagem do perfil -->
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+                    <!-- Imagem de fundo -->
                     <ImageView
                         android:id="@+id/imageView2"
                         android:layout_width="422dp"
@@ -35,6 +40,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/mesaperfi3" />
 
+                    <!-- Imagem do perfil do utilizador -->
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView"
                         android:layout_width="150dp"
@@ -50,6 +56,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/imageView2"
                         app:srcCompat="@drawable/ic_baseline_person_24" />
 
+                    <!-- Botão flutuante para alterar a foto do perfil -->
                     <com.google.android.material.floatingactionbutton.FloatingActionButton
                         android:id="@+id/floatingActionButton"
                         android:layout_width="wrap_content"
@@ -68,11 +75,12 @@
                         app:pressedTranslationZ="12dp"
                         app:shapeAppearanceOverlay="@style/circular" />
 
+                    <!-- Nome do utilizador -->
                     <TextView
                         android:id="@+id/textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Nome do Usuário"
+                        android:text="Nome do Utilizador"
                         android:textSize="25sp"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -80,11 +88,12 @@
                         app:layout_constraintTop_toBottomOf="@+id/imageView"
                         app:layout_constraintVertical_bias="0.1" />
 
+                    <!-- Email do utilizador -->
                     <TextView
                         android:id="@+id/textView2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Email do Usuário"
+                        android:text="Email do Utilizador"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="@+id/textView"
                         app:layout_constraintStart_toStartOf="@+id/textView"
@@ -93,12 +102,14 @@
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
+                <!-- LinearLayout para os botões abaixo das informações do perfil -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:layout_marginTop="16dp">
 
+                    <!-- Botão para informações do perfil -->
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/button2"
                         android:layout_width="match_parent"
@@ -116,6 +127,7 @@
                         android:text="@string/lblprofile_information"
                         android:textAlignment="viewStart" />
 
+                    <!-- Botão para configurações da conta -->
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/button5"
                         android:layout_width="match_parent"
@@ -133,6 +145,7 @@
                         android:text="@string/lblaccount_settings"
                         android:textAlignment="viewStart" />
 
+                    <!-- Botão para voltar à página principal -->
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/buttonBackToMainPage"
                         android:layout_width="match_parent"
@@ -148,6 +161,7 @@
                         android:text="@string/lblback_to_main_page"
                         android:textColor="#ffffff" />
 
+                    <!-- Botão para logout -->
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/buttonLogout"
                         android:layout_width="match_parent"

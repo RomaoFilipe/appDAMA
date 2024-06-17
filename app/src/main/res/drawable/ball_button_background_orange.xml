@@ -1,0 +1,26 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Sombra -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#057302" /> <!-- Cor da bola -->
+            <size android:width="150dp" android:height="150dp" />
+        </shape>
+    </item>
+    <!-- Bola -->
+    <item android:bottom="4dp">
+        <shape android:shape="oval">
+            <gradient
+                android:startColor="#104202"
+                android:endColor="#31FF01"
+                android:gradientRadius="90dp" />
+            <size android:width="150dp" android:height="150dp" />
+        </shape>
+    </item>
+    <!-- Círculo branco com número -->
+    <item android:bottom="50dp" android:left="50dp" android:right="40dp" android:top="40dp">
+        <shape android:shape="oval">
+            <solid android:color="#FFFFFF" />
+            <size android:width="40dp" android:height="70dp" />
+        </shape>
+    </item>
+</layer-list>

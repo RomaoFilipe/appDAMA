@@ -37,4 +37,17 @@
     <string name="lblback_to_main_page">Voltar</string>
     <string name="lblprofile_information">Detalhe Perfil</string>
     <string name="lblaccount_settings">Definições Conta</string>
+    <string name="back">BT_Back</string>
+    <string name="BTN_stop">Parar</string>
+    <string name="TXT_sound_level_0">Nível de Som: 0</string>
+    <string name="TXT_sound_monitor">Monitor de Som</string>
+    <string name="edit">IconEdit</string>
+    <string name="lblregister">Registar</string>
+    <string name="lblfullname">Nome Completo</string>
+    <string name="lblphone">Telefone</string>
+    <string name="lbluser">Nome de Utilizador</string>
+    <string name="lblpassword">Senha</string>
+    <string name="lblrepeatpassword">Repetir Senha</string>
+    <string name="hintemail">Email</string>
+    <string name="logo_description">Logo da app</string>
 </resources>

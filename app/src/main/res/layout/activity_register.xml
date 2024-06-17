@@ -6,14 +6,17 @@
     android:padding="16dp"
     android:background="@drawable/background_bilhar3">
 
+    <!-- Logo do aplicativo -->
     <ImageView
         android:id="@+id/ivLogo"
         android:layout_width="230dp"
         android:layout_height="110dp"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
-        android:src="@drawable/logowhite" />
+        android:src="@drawable/logowhite"
+        android:contentDescription="@string/logo_description"/>
 
+    <!-- Layout para os campos de entrada e botões -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,11 +25,12 @@
         android:background="@drawable/rounded_background"
         android:layout_marginTop="16dp">
 
+        <!-- Texto de boas-vindas -->
         <TextView
             android:id="@+id/welcomeText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registo"
+            android:text="@string/lblregister"
             android:textSize="20sp"
             android:layout_gravity="center"
             android:textColor="@color/black"
@@ -35,6 +39,7 @@
             android:textAlignment="center"
             android:layout_marginTop="0dp"/>
 
+        <!-- Campo de entrada para nome completo -->
         <EditText
             android:id="@+id/etFullName"
             style="@style/EditTextStyle"
@@ -43,8 +48,11 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/Gray"
-            android:hint="Nome Completo" />
+            android:hint="@string/lblfullname"
+            android:inputType="textPersonName"
+            android:autofillHints="name" />
 
+        <!-- Campo de entrada para email -->
         <EditText
             android:id="@+id/etEmail"
             style="@style/EditTextStyle"
@@ -52,9 +60,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/Gray"
-            android:hint="Email"
+            android:hint="@string/hintemail"
+            android:autofillHints="emailAddress"
             android:inputType="textEmailAddress" />
 
+        <!-- Campo de entrada para telefone -->
         <EditText
             android:id="@+id/etPhone"
             style="@style/EditTextStyle"
@@ -62,9 +72,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/Gray"
-            android:hint="Número de Telefone"
+            android:hint="@string/lblphone"
+            android:autofillHints="phone"
             android:inputType="phone" />
 
+        <!-- Campo de entrada para nome de utilizador -->
         <EditText
             android:id="@+id/etUsernameRegister"
             style="@style/EditTextStyle"
@@ -72,8 +84,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/Gray"
-            android:hint="Nome de Usuário" />
+            android:hint="@string/lbluser"
+            android:autofillHints="username"
+            android:inputType="textPersonName"/>
 
+        <!-- Campo de entrada para senha -->
         <EditText
             android:id="@+id/etPasswordRegister"
             style="@style/EditTextStyle"
@@ -81,9 +96,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/Gray"
-            android:hint="Senha"
+            android:hint="@string/lblpassword"
+            android:autofillHints="password"
             android:inputType="textPassword" />
 
+        <!-- Campo de entrada para confirmar senha -->
         <EditText
             android:id="@+id/etConfirmPasswordRegister"
             style="@style/EditTextStyle"
@@ -91,9 +108,11 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/Gray"
-            android:hint="Confirmar Senha"
+            android:hint="@string/lblrepeatpassword"
+            android:autofillHints="retype password"
             android:inputType="textPassword" />
 
+        <!-- Botão de registo -->
         <Button
             android:id="@+id/btnRegister"
             style="@style/ButtonStyle"
@@ -102,7 +121,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rectangle_button"
-            android:text="Registrar"/>
+            android:text="@string/register"/>
 
     </LinearLayout>
 </LinearLayout>

@@ -13,12 +13,14 @@ import com.google.firebase.firestore.FirebaseFirestore
 class ScheduleLessonFragment : Fragment() {
     private lateinit var firestore: FirebaseFirestore
 
+    /* Método chamado quando a View é criada */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_schedule_lesson, container, false)
 
+        /* Referências para os elementos da interface do utilizador */
         val editTextTrainerName = view.findViewById<EditText>(R.id.editTextTrainerName)
         val editTextDate = view.findViewById<EditText>(R.id.editTextDate)
         val editTextTime = view.findViewById<EditText>(R.id.editTextTime)
@@ -26,11 +28,13 @@ class ScheduleLessonFragment : Fragment() {
 
         firestore = FirebaseFirestore.getInstance()
 
+        /* Configura o botão de agendamento */
         buttonSchedule.setOnClickListener {
             val trainerName = editTextTrainerName.text.toString()
             val date = editTextDate.text.toString()
             val time = editTextTime.text.toString()
 
+            /* Verifica se os campos estão preenchidos */
             if (trainerName.isNotEmpty() && date.isNotEmpty() && time.isNotEmpty()) {
                 val lesson = hashMapOf(
                     "trainerName" to trainerName,
@@ -38,6 +42,7 @@ class ScheduleLessonFragment : Fragment() {
                     "time" to time
                 )
 
+                /* Salva o agendamento no Firestore */
                 firestore.collection("lessons")
                     .add(lesson)
                     .addOnSuccessListener {
