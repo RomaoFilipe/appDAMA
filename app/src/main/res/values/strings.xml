@@ -54,4 +54,6 @@
     <string name="txtusername">Username</string>
     <string name="txtusernameemail">User Email</string>
     <string name="img_photo">photo</string>
+    <string name="info_button">btn_info</string>
+    <string name="back_to_login">Back to Login</string>
 </resources>

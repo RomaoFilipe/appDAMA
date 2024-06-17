@@ -32,6 +32,7 @@ class RegisterActivity : AppCompatActivity() {
         val etPasswordRegister = findViewById<EditText>(R.id.etPasswordRegister)
         val etConfirmPasswordRegister = findViewById<EditText>(R.id.etConfirmPasswordRegister)
         val btnRegister = findViewById<Button>(R.id.btnRegister)
+        val btnBackToLogin = findViewById<Button>(R.id.btnBackToLogin)  // Correctly referencing the button
 
         /* Configura o comportamento do botão de registo */
         btnRegister.setOnClickListener {
@@ -97,6 +98,11 @@ class RegisterActivity : AppCompatActivity() {
                         }
                     }
             }
+        }
+        /* Configura o comportamento do botão para voltar ao LoginActivity */
+        btnBackToLogin.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
         }
     }
 }
