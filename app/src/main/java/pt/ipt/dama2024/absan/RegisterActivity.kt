@@ -12,9 +12,11 @@ import com.google.firebase.auth.UserProfileChangeRequest
 
 class RegisterActivity : AppCompatActivity() {
 
+    /* Declaração das variáveis dbHelper e auth */
     private lateinit var dbHelper: DBHelper
     private lateinit var auth: FirebaseAuth
 
+    /* Método chamado quando a atividade é criada */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -22,6 +24,7 @@ class RegisterActivity : AppCompatActivity() {
         dbHelper = DBHelper(this)
         auth = FirebaseAuth.getInstance()
 
+        /* Referências para os elementos da interface do utilizador */
         val etFullName = findViewById<EditText>(R.id.etFullName)
         val etEmail = findViewById<EditText>(R.id.etEmail)
         val etPhone = findViewById<EditText>(R.id.etPhone)
@@ -30,6 +33,7 @@ class RegisterActivity : AppCompatActivity() {
         val etConfirmPasswordRegister = findViewById<EditText>(R.id.etConfirmPasswordRegister)
         val btnRegister = findViewById<Button>(R.id.btnRegister)
 
+        /* Configura o comportamento do botão de registo */
         btnRegister.setOnClickListener {
             val fullName = etFullName.text.toString()
             val email = etEmail.text.toString()
@@ -38,6 +42,7 @@ class RegisterActivity : AppCompatActivity() {
             val password = etPasswordRegister.text.toString()
             val confirmPassword = etConfirmPasswordRegister.text.toString()
 
+            /* Log para depuração */
             Log.d("RegisterActivity", "Full Name: $fullName")
             Log.d("RegisterActivity", "Email: $email")
             Log.d("RegisterActivity", "Phone: $phone")
@@ -45,20 +50,24 @@ class RegisterActivity : AppCompatActivity() {
             Log.d("RegisterActivity", "Password: $password")
             Log.d("RegisterActivity", "Confirm Password: $confirmPassword")
 
+            /* Verifica se os campos estão vazios */
             if (fullName.isEmpty() || email.isEmpty() || phone.isEmpty() || username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
                 Toast.makeText(this, getString(R.string.empty_fields), Toast.LENGTH_SHORT).show()
                 Log.d("RegisterActivity", "Empty fields detected")
             } else if (password != confirmPassword) {
+                /* Verifica se as senhas coincidem */
                 Toast.makeText(this, getString(R.string.passwords_do_not_match), Toast.LENGTH_SHORT).show()
                 Log.d("RegisterActivity", "Passwords do not match")
             } else if (dbHelper.checkUserExists(username)) {
+                /* Verifica se o utilizador já existe */
                 Toast.makeText(this, getString(R.string.user_already_exists), Toast.LENGTH_SHORT).show()
                 Log.d("RegisterActivity", "User already exists: $username")
             } else {
+                /* Cria uma nova conta no Firebase */
                 auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            // Atualizar o perfil do usuário com o nome completo
+                            // Atualizar o perfil do utilizador com o nome completo
                             val user = auth.currentUser
                             val profileUpdates = UserProfileChangeRequest.Builder()
                                 .setDisplayName(fullName)

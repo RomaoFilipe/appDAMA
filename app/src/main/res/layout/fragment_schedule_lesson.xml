@@ -5,12 +5,14 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <!-- Campo de texto para o nome do treinador -->
     <EditText
         android:id="@+id/editTextTrainerName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nome do Treinador" />
 
+    <!-- Campo de texto para a data -->
     <EditText
         android:id="@+id/editTextDate"
         android:layout_width="match_parent"
@@ -18,6 +20,7 @@
         android:hint="Data"
         android:inputType="date" />
 
+    <!-- Campo de texto para a hora -->
     <EditText
         android:id="@+id/editTextTime"
         android:layout_width="match_parent"
@@ -25,6 +28,7 @@
         android:hint="Hora"
         android:inputType="time" />
 
+    <!-- Botão para agendar a aula -->
     <Button
         android:id="@+id/buttonSchedule"
         android:layout_width="match_parent"

@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:padding="8dp">
 
+    <!-- LinearLayout para exibir os itens do treinador -->
     <LinearLayout
         android:id="@+id/linearLayoutTrainerItem"
         android:layout_width="match_parent"
@@ -15,6 +16,7 @@
         android:layout_margin="4dp"
         android:elevation="2dp">
 
+        <!-- ImageView para a imagem do treinador -->
         <ImageView
             android:id="@+id/imageViewTrainer"
             android:layout_width="50dp"
@@ -23,6 +25,7 @@
             android:scaleType="centerCrop"
             android:src="@drawable/ic_trainer_placeholder" />
 
+        <!-- TextView para o nome do treinador -->
         <TextView
             android:id="@+id/textViewTrainerName"
             android:layout_width="wrap_content"

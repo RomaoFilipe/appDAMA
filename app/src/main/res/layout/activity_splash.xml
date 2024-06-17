@@ -7,7 +7,7 @@
     android:gravity="center"
     android:background="@drawable/mesa">
 
-
+    <!-- ImageView para o logotipo -->
     <ImageView
         android:id="@+id/ivLogo"
         android:layout_width="267dp"
@@ -15,6 +15,7 @@
         android:contentDescription="@string/logo"
         android:src="@drawable/logowhite" />
 
+    <!-- ProgressBar para indicar o carregamento -->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="92dp"

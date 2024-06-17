@@ -6,12 +6,15 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
 
+// DBHelper é uma classe que ajuda a gerir um base de dados SQLite
 class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
+        // Constantes para o nome do base de dados e versão
         private const val DATABASE_NAME = "users.db"
         private const val DATABASE_VERSION = 2
 
+        // Constantes para o nome da tabela e colunas
         private const val TABLE_USERS = "Users"
         private const val COLUMN_ID = "id"
         private const val COLUMN_FULL_NAME = "fullName"
@@ -22,7 +25,9 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         private const val COLUMN_PROFILE_IMAGE_PATH = "profile_image_path"
     }
 
+    // Método chamado na criação do base de dados
     override fun onCreate(db: SQLiteDatabase?) {
+        // Comando SQL para criar a tabela Users
         val createTable = ("CREATE TABLE $TABLE_USERS ("
                 + "$COLUMN_ID INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "$COLUMN_FULL_NAME TEXT,"
@@ -34,7 +39,9 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         db?.execSQL(createTable)
     }
 
+    // Método chamado quando o base de dados precisa ser atualizado
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+        // Atualiza a tabela se a versão antiga for menor que a nova versão
         if (oldVersion < 2) {
             db?.execSQL("ALTER TABLE $TABLE_USERS ADD COLUMN $COLUMN_EMAIL TEXT")
             db?.execSQL("ALTER TABLE $TABLE_USERS ADD COLUMN $COLUMN_PHONE TEXT")
@@ -43,6 +50,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         }
     }
 
+    // Método para adicionar um utilizador ao base de dados
     fun addUser(fullName: String, email: String, phone: String, username: String, password: String): Boolean {
         val db = this.writableDatabase
         val contentValues = ContentValues()
@@ -58,6 +66,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         return result != (-1).toLong()
     }
 
+    // Método para verificar se um utilizador existe no base de dados
     fun checkUserExists(username: String): Boolean {
         val db = this.readableDatabase
         val query = "SELECT * FROM $TABLE_USERS WHERE $COLUMN_USERNAME = ?"
@@ -68,6 +77,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         return exists
     }
 
+    // Método para obter o email de um utilizador pelo nome de utilizador
     fun getUserEmailByUsername(username: String): String? {
         val db = this.readableDatabase
         val query = "SELECT $COLUMN_EMAIL FROM $TABLE_USERS WHERE $COLUMN_USERNAME = ?"
@@ -81,6 +91,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         return email
     }
 
+    // Método para obter um utilizador pelo nome de utilizador
     fun getUserByUsername(username: String): User? {
         val db = this.readableDatabase
         val query = "SELECT * FROM $TABLE_USERS WHERE $COLUMN_USERNAME = ?"
@@ -99,6 +110,7 @@ class DBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null
         return user
     }
 
+    // Método para atualizar o caminho da imagem de perfil de um utilizador
     fun updateUserProfileImage(username: String, profileImagePath: String): Boolean {
         val db = this.writableDatabase
         val contentValues = ContentValues()
