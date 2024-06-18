@@ -17,7 +17,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="10dp"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="@string/back"
+        android:contentDescription="@string/btnback"
         android:src="@drawable/ic_arrow_back" />
 
     <!-- Título da Atividade -->
@@ -28,7 +28,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:text="@string/TXT_sound_monitor"
+        android:text="@string/txtsound_monitor"
         android:textColor="@android:color/black"
         android:textSize="28sp"
         android:textStyle="bold" />
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textViewTitle"
         android:layout_marginTop="32dp"
-        android:max="32767"
+        android:max="100"
         android:progress="0"
         android:progressTint="@color/colorAccent"
         android:layout_marginHorizontal="16dp" />
@@ -51,7 +51,7 @@
         android:id="@+id/textViewSoundLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/TXT_sound_level_0"
+        android:text="@string/txtnivel_de_som_0_db"
         android:textSize="24sp"
         android:textColor="@android:color/black"
         android:layout_below="@id/progressBarSoundLevel"
@@ -63,13 +63,28 @@
         android:id="@+id/buttonStop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/BTN_stop"
+        android:text="@string/btnstop"
         android:textSize="18sp"
         android:textColor="@android:color/white"
         android:backgroundTint="@color/colorPrimary"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="32dp"
+        android:paddingHorizontal="32dp"
+        app:cornerRadius="25dp" />
+
+    <!-- Botão de Repetir -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonRepeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnrepeat"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/colorPrimary"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/buttonStop"
+        android:layout_marginBottom="16dp"
         android:paddingHorizontal="32dp"
         app:cornerRadius="25dp" />
 </RelativeLayout>

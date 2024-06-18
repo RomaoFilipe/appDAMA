@@ -56,4 +56,9 @@
     <string name="info_button">Botão Informações</string>
     <string name="back_to_login">Voltar para o Login</string>
     <string name="txtlogin_as_demo">Demo</string>
+    <string name="txtsound_monitor">Monitor Abertura</string>
+    <string name="txtnivel_de_som_0_db">Som Abertura: 0 dB</string>
+    <string name="btnrepeat">Iniciar</string>
+    <string name="btnstop">Parar</string>
+    <string name="btnback">Voltar</string>
 </resources>
