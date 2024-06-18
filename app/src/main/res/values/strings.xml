@@ -56,4 +56,10 @@
     <string name="img_photo">photo</string>
     <string name="info_button">btn_info</string>
     <string name="back_to_login">Back to Login</string>
+    <string name="txtlogin_as_demo">Demo</string>
+    <string name="txtsound_monitor">Break Monitor</string>
+    <string name="txtnivel_de_som_0_db">Break Sound: 0 dB</string>
+    <string name="btnrepeat">Start</string>
+    <string name="btnstop">Stop</string>
+    <string name="btnback">Back</string>
 </resources>

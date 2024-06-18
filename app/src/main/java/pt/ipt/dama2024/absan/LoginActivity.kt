@@ -11,6 +11,7 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var dbHelper: DBHelper
@@ -29,27 +30,35 @@ class LoginActivity : AppCompatActivity() {
         val tvRegister = findViewById<Button>(R.id.tvRegister)
         val languageSpinner = findViewById<Spinner>(R.id.spinnerLanguage)
         val btnInfo = findViewById<ImageButton>(R.id.btnInfo)
+        val btnDemoLogin = findViewById<Button>(R.id.btnDemoLogin)
+
+        // Create demo user if it doesn't exist
+        createDemoUser()
 
         btnLogin.setOnClickListener {
             val username = etUsernameLogin.text.toString()
             val password = etPasswordLogin.text.toString()
 
             if (username.isNotEmpty() && password.isNotEmpty()) {
-                val email = dbHelper.getUserEmailByUsername(username)
-                if (email != null) {
-                    auth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(this) { task ->
-                            if (task.isSuccessful) {
-                                Toast.makeText(this, getString(R.string.login_successful), Toast.LENGTH_SHORT).show()
-                                val intent = Intent(this, HomeActivity::class.java)
-                                startActivity(intent)
-                                finish()
-                            } else {
-                                Toast.makeText(this, getString(R.string.invalid_credentials), Toast.LENGTH_SHORT).show()
-                            }
-                        }
+                if (username == "demo" && password == "demo") {
+                    loginDemoUser()
                 } else {
-                    Toast.makeText(this, getString(R.string.invalid_credentials), Toast.LENGTH_SHORT).show()
+                    val email = dbHelper.getUserEmailByUsername(username)
+                    if (email != null) {
+                        auth.signInWithEmailAndPassword(email, password)
+                            .addOnCompleteListener(this) { task ->
+                                if (task.isSuccessful) {
+                                    Toast.makeText(this, getString(R.string.login_successful), Toast.LENGTH_SHORT).show()
+                                    val intent = Intent(this, HomeActivity::class.java)
+                                    startActivity(intent)
+                                    finish()
+                                } else {
+                                    Toast.makeText(this, getString(R.string.invalid_credentials), Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                    } else {
+                        Toast.makeText(this, getString(R.string.invalid_credentials), Toast.LENGTH_SHORT).show()
+                    }
                 }
             } else {
                 Toast.makeText(this, getString(R.string.empty_fields), Toast.LENGTH_SHORT).show()
@@ -81,5 +90,42 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, InfoActivity::class.java)
             startActivity(intent)
         }
+
+        btnDemoLogin.setOnClickListener {
+            loginDemoUser()
+        }
+    }
+
+    private fun createDemoUser() {
+        val demoUsername = "demo"
+        val demoPassword = "demo"
+        val demoEmail = "demo@example.com"
+        val demoFullName = "Demo User"
+        val demoPhone = "123456789"
+
+        if (!dbHelper.checkUserExists(demoUsername)) {
+            auth.createUserWithEmailAndPassword(demoEmail, demoPassword)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        val user = auth.currentUser
+                        val profileUpdates = UserProfileChangeRequest.Builder()
+                            .setDisplayName(demoFullName)
+                            .build()
+
+                        user?.updateProfile(profileUpdates)
+                            ?.addOnCompleteListener { profileUpdateTask ->
+                                if (profileUpdateTask.isSuccessful) {
+                                    dbHelper.addUser(demoFullName, demoEmail, demoPhone, demoUsername, demoPassword)
+                                }
+                            }
+                    }
+                }
+        }
+    }
+
+    private fun loginDemoUser() {
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

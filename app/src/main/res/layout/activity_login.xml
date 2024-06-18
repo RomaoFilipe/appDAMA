@@ -56,6 +56,7 @@
             android:layout_height="110dp"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
+            android:contentDescription="ABSAN Logo"
             android:src="@drawable/logo_black" />
 
         <!-- Campo de entrada para nome de utilizador -->
@@ -126,6 +127,18 @@
                 android:minHeight="48dp" />
 
         </LinearLayout>
+        <!-- Button to login as Demo User -->
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnDemoLogin"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_button"
+        android:text="@string/txtlogin_as_demo"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        tools:ignore="VisualLintButtonSize" />
 </LinearLayout>
