@@ -128,16 +128,17 @@
 
         </LinearLayout>
         <!-- Button to login as Demo User -->
-        <Button
-            android:id="@+id/btnDemoLogin"
-            style="@style/ButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rectangle_button"
-            android:text="@string/txtlogin_as_demo"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:ignore="VisualLintButtonSize" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btnDemoLogin"
+        style="@style/ButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rectangle_button"
+        android:text="@string/txtlogin_as_demo"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        tools:ignore="VisualLintButtonSize" />
 </LinearLayout>
